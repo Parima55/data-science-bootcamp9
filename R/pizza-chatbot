@@ -1,0 +1,91 @@
+pizza_bot <- function() {
+  
+  #greeting
+  print('Welcome to our pizza shop')
+    customer <- readline('May i have your name:')
+    print(paste('Hello khun', customer, 'this is our menu'))
+        
+   #menu_table
+     
+     #pizza_menu_table
+     
+     pizza_id <- c(1, 2, 3, 4, 5, 6)
+     pizza_face <- c('Double cheese', 
+                     'Hawaiian', 
+                     'Chicken Deluxe', 
+                     'Meat Lover', 
+                     'Veggie', 
+                     'Seafood')
+     
+     size_m_price <- c(299, 399, 259, 399, 299, 399)
+     
+     pizza_menu <- data.frame(pizza_id,pizza_face, size_m_price)
+     
+     
+     #Dink_menu_table
+     drink_id <- c(1, 2, 3)
+     drinks <- c('Coca cola', 'Sprite', 'Water')
+     drink_price <- c(29, 29, 15)
+     drink_menu <- data.frame(drinks, drink_price)
+     
+     print(pizza_menu)
+                   
+                   
+   #Order(loop)
+     
+     customer_order <- list()
+     pizza_price <- list()
+     
+     
+     i <- 1
+     while (i >= 1) {
+       
+    #Pizza order 
+     customer_order[[i]] <- readline('What would you like to order(Type number): ')
+     
+            pizza_price <- (size_m_price[customer_order[[i]]])
+    
+            as.integer(print('Total price is', pizza_price))
+      
+      
+      #Drink order
+      
+            drink_order <- print(readline('Any drinks?(y/n)'))
+            
+                if(drink_order <- "y") {
+                  
+                  print(paste(drink_menu))
+                  customer_drink <- print(readline( 'Enter the drink number: '))
+                  print('You order', drinks[customer_drink] )
+                }          
+      
+                else {
+                  print()
+                }
+            
+            
+      #order conclusion factor
+      all_order <- as.character(pizza_face[customer_order] & drinks[customer_drink])
+      total_price <- as.numeric(pizza_price + drink_price[drink_order])
+            
+            
+            
+     #Another pizza order
+                 
+      more_order <- print(read_builtin('Anything else?(y/n): '))
+          
+          if(more_order <- 'n') {
+            print('You order')
+            for (i in all_order) {
+              print(i)
+            }
+            print('Total price: ',total_price)
+            break
+          }
+      
+      print(menu)
+      i = i+1
+                       
+     }
+       
+}
